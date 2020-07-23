@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+</head>
+<body>
+<header style="width: 80%;height: 220px;">
+    <div style="margin-left: 120px;"><a th:href="@{/index}">首页</a></div>
+    <button style="float: right;"><a th:href="@{/toRegister}">新用户注册</a></button>
+</header>
+<div class="container">
+    <form  th:action="@{/loginUser}" method="post">
+        <h2 class="form-signin-heading" style="width: 400px;margin-left: 360px">Please sign in</h2>
+        <p style="width: 400px;margin-left: 360px;">
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="userName" name="userName" class="form-control" placeholder="请输入用户名">
+        </p>
+        <p style="width: 400px;margin-left: 360px;">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 400px;margin-left: 360px;">登&nbsp;&nbsp;录</button>
+    </form>
+</div>
+</body></html>

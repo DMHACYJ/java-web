@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <div style="width: 80%;height: 35px;margin: auto;">
+        <div style="float: left">
+            <div style="float: left"><a th:href="@{/index}">首页</a></div>
+        </div>
+        <di style="float: right">
+<!--            欢迎您：<div id="id2" style="display:none;" th:value="${user.userName}"></div>-->
+            <div style="float: left;margin-right: 20px;"><a th:href="@{/toLogin}">登录</a></div>
+            <div style="float: right;margin-left: 10px;"><a th:href="@{/toRegister}">注册</a></div>
+        </di>
+    </div>
+
+    <div style="width:1800px;float: left">
+        <form  th:action="@{/goquery}" method="post"style="margin-left:800px;margin-top: 100px;width: 1200px;" >
+            <label>标题:</label>
+            <input type="text" id="title" name="title" class="form-control"/>
+            <button>查询</button>
+        </form>
+        <div style="margin-left: 400px;margin-bottom: 10px;">
+<!--            <button><a href="/goadd">添加</a></button>-->
+        </div>
+
+    </div>
+    <table border="1px" style="width:1200px;border-collapse:collapse;margin: auto;margin-top: 10px">
+        <thead>
+        <tr>
+            <th style="width: 700px;height: 30px;">标题</th>
+<!--            <th style="width: 160px;height: 30px;">操作</th>-->
+        </tr>
+        <tr th:each="list:${invitationList}">
+            <td style="text-align: center;height: 30px" th:text="${list.title}"></td>
+<!--            <td style="margin: auto">-->
+<!--                <a style="margin-left: 60px;" th:href="@{'/goupdate?id='+${list.id}}">编辑</a>-->
+<!--                <a style="margin-left: 45px;" th:href="@{'/godel?id='+${list.id}}">删除</a>-->
+<!--            </td>-->
+        </tr>
+        </thead>
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="denglu.css">
+</head>
+<body>
+<div style="width: 80%;height: 35px;margin: auto;">
+    <div style="float: left">
+        <div style="float: left"><a th:href="@{/index}">首页</a></div>
+    </div>
+</div>
+<div style="margin-left: 400px;margin-top: 100px;">
+    <h2 style="margin-left: 500px;">新用户注册、新增</h2>
+    <form th:action="@{/saveUser}" method="post">
+        <div class="inputbox" style="margin-left: 300px;">
+            <label>帐号：</label>
+            <input type="text" name="userName" required="" style="width: 400px;height: 40px;">
+        </div>
+        <div class="inputbox" style="margin-left: 300px">
+            <label>密码：</label>
+            <input type="password" name="password" required="" style="width: 400px;height: 40px;margin-top: 10px;">
+        </div>
+        <div class="inputbox" style="margin-left: 300px">
+            <label>角色：</label>
+            <input type="text" name="role" required="" style="width: 400px;height: 40px;margin-top: 10px;">
+        </div>
+        <div class="inputbox" style="margin-left: 300px">
+            <label>email:&nbsp;</label>
+            <input type="text" name="email" style="width: 400px;height: 40px;margin-top: 10px;">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width:100px;height:30px;margin-left: 500px;margin-top: 10px;">确&nbsp;&nbsp;定</button>
+    </form>
+</div>
+</body>
+</html>

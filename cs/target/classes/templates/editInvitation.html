@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>修改帖子</title>
+</head>
+<body>
+<div style="width: 80%;height: 35px;margin: auto;">
+    <div style="float: left">
+        <div style="float: left"><a th:href="@{/index}">首页</a></div>
+    </div>
+    <di style="float: right">
+        <div style="width: 300px;">
+            <div style="width: 70px;float: left">欢迎您：</div>
+            <div id="id2" th:text="${userName}" style="width: 220px;float: right"></div>
+        </div>
+    </di>
+</div>
+<div style="margin-left: 400px;margin-top: 100px;">
+    <h2 style="margin-left: 500px;">修改帖子</h2>
+    <form  th:action="@{/saveInvitation}" method="post">
+        <input type="hidden" name="id" th:value="${invitation.id}">
+        <input type="hidden" name="userName" th:value="${userName}">
+        <input type="hidden" name="role" th:value="${role}">
+        <p>
+            标题：<input type="text" name="title" th:value="${invitation.title}" style="width: 1000px;height: 40px;">
+        </p>
+        <p>
+            内容：<input type="text" name="content" th:value="${invitation.content}" style="width: 1000px;height: 300px;">
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-left: 500px;">确定</button>
+    </form>
+</div>
+</body>
+</html>

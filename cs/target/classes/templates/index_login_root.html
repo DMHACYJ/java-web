@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <div style="width: 80%;height: 35px;margin: auto;">
+        <div style="float: left">
+            <div style="float: left"><a th:href="@{/index}">首页</a></div>
+        </div>
+        <di style="float: right">
+            <div style="width: 300px;">
+                <div style="width: 70px;float: left">欢迎您：</div>
+                <div id="id2" th:text="${userName}" style="width: 220px;float: right"></div>
+            </div>
+        </di>
+    </div>
+    <div>
+        <form th:action="@{/toUser}" method="post" style="margin-left: 100px;">
+            <input type="hidden" name="userName" th:value="${userName}"/>
+            <input type="hidden" name="id" th:value="${id}"/>
+            <button>用户管理</button>
+        </form>
+    </div>
+    <div style="width:1800px;float: left">
+        <form  th:action="@{/goquery}" method="post"style="margin-left:800px;margin-top: 100px;width: 1200px;" >
+            <label>标题:</label>
+            <input type="text" id="title" name="title" class="form-control"/>
+            <input type="hidden" id ="userName" name="userName" th:value="${userName}">
+            <input type="hidden" id ="role" name="role" th:value="${role}">
+            <button>查询</button>
+        </form>
+        <form th:action="@{/goadd}" method="post" style="margin-left: 400px;margin-bottom: 10px;">
+            <input type="hidden" name="userName" th:value="${userName}" class="form-control"/>
+            <button>添加</button>
+        </form>
+
+    </div>
+    <table border="1px" style="width:1200px;border-collapse:collapse;margin: auto;margin-top: 10px">
+        <thead>
+        <tr>
+            <th style="width: 700px;height: 30px;">标题</th>
+            <th style="width: 160px;height: 30px;">操作</th>
+        </tr>
+        <tr th:each="list:${invitationList}">
+            <td style="text-align: center;height: 30px" th:text="${list.title}"></td>
+            <td style="margin: auto">
+                <form  th:action="@{/goupdate}" method="post">
+                    <input type="hidden" name="id" th:value="${list.id}"/>
+                    <input type="hidden" name="userName" th:value="${userName}"/>
+                    <input type="hidden" name="role" th:value="${role}"/>
+                    <button style="margin-left: 20px">编辑</button>
+                </form>
+
+                <form  th:action="@{/godel}" method="post">
+                    <input type="hidden" name="id" th:value="${list.id}"/>
+                    <input type="hidden" name="userName" th:value="${userName}"/>
+                    <button style="margin-left: 20px">删除</button>
+                </form>
+            </td>
+        </tr>
+        </thead>
+    </table>
+</body>
+</html>
+
